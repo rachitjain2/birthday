@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAPPY BIRTHDAY SHAGUN! — A Shonen Celebration</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bungee&family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+  :root{
+    --red:#FF2D55;
+    --orange:#FF6B35;
+    --yellow:#FFD60A;
+    --blue:#1E6FFF;
+    --electric:#00C2FF;
+    --pink:#FF3CAC;
+    --cream:#FFF6E0;
+    --ink:#0A0A12;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+    margin:0;
+  }
+  .font-sfx{font-family:'Bangers',cursive;letter-spacing:2px}
+  .font-display{font-family:'Bungee',sans-serif}
+  .font-body{font-family:'Outfit',sans-serif}
+
+  .halftone{background-image:radial-gradient(circle,rgba(10,10,18,.35) 1.4px,transparent 1.4px);background-size:11px 11px}
+  .halftone-red{background-image:radial-gradient(circle,rgba(255,45,85,.55) 2px,transparent 2px);background-size:10px 10px}
+  .halftone-blue{background-image:radial-gradient(circle,rgba(30,111,255,.5) 2px,transparent 2px);background-size:10px 10px}
+  .halftone-yellow{background-image:radial-gradient(circle,rgba(255,214,10,.6) 2px,transparent 2px);background-size:9px 9px}
+
+  .speed-lines{
+    position:absolute;inset:0;
+    background:repeating-conic-gradient(from 0deg at 50% 50%,var(--ink) 0deg .8deg,transparent .8deg 5deg);
+    -webkit-mask:radial-gradient(circle at center,transparent 28%,#000 55%,transparent 100%);
+    mask:radial-gradient(circle at center,transparent 28%,#000 55%,transparent 100%);
+    animation:spin 30s linear infinite;
+    opacity:.18;pointer-events:none;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .burst-sun{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:160vmin;height:160vmin;border-radius:50%;
+    background:repeating-conic-gradient(from 0deg,
+      var(--yellow) 0deg 7deg,
+      var(--red) 7deg 14deg,
+      var(--orange) 14deg 21deg,
+      var(--red) 21deg 28deg);
+    -webkit-mask:radial-gradient(circle,transparent 22%,#000 26%,#000 70%,transparent 75%);
+    mask:radial-gradient(circle,transparent 22%,#000 26%,#000 70%,transparent 75%);
+    animation:pulse-burst 6s ease-in-out infinite;
+    filter:drop-shadow(0 0 40px rgba(255,107,53,.4));
+    pointer-events:none;
+  }
+  @keyframes pulse-burst{
+    0%,100%{transform:translate(-50%,-50%) scale(1) rotate(0deg)}
+    50%{transform:translate(-50%,-50%) scale(1.06) rotate(6deg)}
+  }
+
+  .petal{position:fixed;top:-30px;pointer-events:none;z-index:8;will-change:transform}
+  @keyframes fall{
+    0%{transform:translate3d(0,-10vh,0) rotate(0deg);opacity:0}
+    8%{opacity:1}
+    100%{transform:translate3d(var(--drift,80px),110vh,0) rotate(720deg);opacity:0}
+  }
+
+  .sfx{
+    position:absolute;font-family:'Bangers',cursive;letter-spacing:3px;
+    text-shadow:4px 4px 0 var(--ink);
+    -webkit-text-stroke:2px var(--ink);
+    paint-order:stroke fill;
+    animation:float-sfx 3.2s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes float-sfx{
+    0%,100%{transform:translateY(0) rotate(var(--rot,-8deg)) scale(1)}
+    50%{transform:translateY(-18px) rotate(var(--rot,-8deg)) scale(1.06)}
+  }
+
+  .manga-panel{
+    position:relative;border:4px solid var(--ink);
+    box-shadow:7px 7px 0 var(--ink);overflow:hidden;
+    background:var(--cream);
+    transition:transform .35s cubic-bezier(.2,.8,.3,1.2),box-shadow .35s ease;
+  }
+  .manga-panel:hover{transform:translate(-4px,-4px) rotate(-.5deg);box-shadow:12px 12px 0 var(--ink)}
+
+  .stroke-ink{-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+  .stroke-thick{-webkit-text-stroke:4px var(--ink);paint-order:stroke fill}
+  .stroke-white{-webkit-text-stroke:3px #fff;paint-order:stroke fill}
+
+  .reveal{opacity:0;transform:translateY(45px) rotate(-1deg);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.3,1.2)}
+  .reveal.in{opacity:1;transform:none}
+
+  .btn-power{
+    position:relative;font-family:'Bangers',cursive;letter-spacing:3px;
+    background:var(--yellow);color:var(--ink);
+    border:4px solid var(--ink);box-shadow:6px 6px 0 var(--ink);
+    padding:14px 28px;cursor:pointer;font-size:22px;
+    transition:all .15s ease;
+  }
+  .btn-power:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink)}
+  .btn-power:active{transform:translate(6px,6px);box-shadow:0 0 0 var(--ink)}
+
+  .eq-bar{width:6px;background:var(--yellow);border:2px solid var(--ink);animation:eq .8s ease-in-out infinite}
+  .eq-bar:nth-child(2){animation-delay:.15s;background:var(--red)}
+  .eq-bar:nth-child(3){animation-delay:.3s;background:var(--blue)}
+  .eq-bar:nth-child(4){animation-delay:.45s;background:var(--orange)}
+  .eq-bar:nth-child(5){animation-delay:.6s;background:var(--pink)}
+  .eq-bar:nth-child(6){animation-delay:.75s;background:var(--electric)}
+  @keyframes eq{0%,100%{height:8px}50%{height:34px}}
+  .eq-paused .eq-bar{animation-play-state:paused;height:8px}
+
+  .disc{animation:spin 4s linear infinite}
+  .disc-paused{animation-play-state:paused}
+
+  .nav-link{position:relative;font-family:'Bangers',cursive;letter-spacing:2px;font-size:18px}
+  .nav-link::after{content:'';position:absolute;left:0;bottom:-4px;height:3px;width:0;background:var(--red);transition:width .3s ease}
+  .nav-link:hover::after{width:100%}
+
+  .comic-frame{
+    border:4px solid var(--ink);
+    box-shadow:10px 10px 0 var(--ink);
+    background:#fff;
+  }
+
+  .speech{
+    position:relative;background:#fff;border:4px solid var(--ink);border-radius:18px;
+    padding:10px 16px;font-family:'Bangers',cursive;letter-spacing:1.5px;
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  .speech::after{
+    content:'';position:absolute;bottom:-22px;left:30px;
+    width:0;height:0;border:11px solid transparent;border-top-color:var(--ink);border-bottom:0;
+  }
+  .speech::before{
+    content:'';position:absolute;bottom:-15px;left:33px;
+    width:0;height:0;border:8px solid transparent;border-top-color:#fff;border-bottom:0;z-index:1;
+  }
+
+  .hero-name{
+    font-family:'Bungee',sans-serif;
+    background:linear-gradient(180deg,var(--yellow) 0%,var(--orange) 60%,var(--red) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:5px var(--ink);paint-order:stroke fill;
+    filter:drop-shadow(8px 8px 0 var(--ink));
+    line-height:.85;
+  }
+  .hero-sub{
+    font-family:'Bangers',cursive;letter-spacing:4px;
+    background:var(--blue);color:#fff;
+    -webkit-text-stroke:2px var(--ink);paint-order:stroke fill;
+    padding:6px 18px;display:inline-block;
+    box-shadow:5px 5px 0 var(--ink);
+    transform:rotate(-2deg);
+  }
+
+  .chapter-tag{
+    display:inline-block;font-family:'Bangers',cursive;letter-spacing:3px;
+    background:var(--ink);color:var(--yellow);padding:4px 14px;
+    transform:rotate(-2deg);box-shadow:4px 4px 0 var(--red);
+    font-size:16px;
+  }
+  .section-title{
+    font-family:'Bangers',cursive;letter-spacing:3px;
+    -webkit-text-stroke:3px var(--ink);paint-order:stroke fill;
+    line-height:.95;
+  }
+
+  .count-box{
+    background:var(--ink);color:var(--yellow);border:4px solid var(--ink);
+    box-shadow:6px 6px 0 var(--red);padding:18px 10px;text-align:center;
+    transform:rotate(-1deg);
+  }
+  .count-num{font-family:'Bungee',sans-serif;font-size:54px;line-height:1;color:#fff}
+  .count-label{font-family:'Bangers',cursive;letter-spacing:2px;color:var(--yellow);font-size:14px;margin-top:6px}
+
+  .marquee{display:flex;gap:40px;animation:marquee 22s linear infinite;white-space:nowrap}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  .scroll-cue{animation:bounce 1.8s ease-in-out infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+
+  .glow-yellow{filter:drop-shadow(0 0 18px rgba(255,214,10,.7))}
+  .glow-red{filter:drop-shadow(0 0 18px rgba(255,45,85,.6))}
+
+  @keyframes heart-up{
+    0%{transform:translateY(0) scale(.6);opacity:0}
+    20%{opacity:1}
+    100%{transform:translateY(-160px) scale(1.2) rotate(20deg);opacity:0}
+  }
+
+  .tilt-l{transform:rotate(-2deg)}
+  .tilt-r{transform:rotate(2deg)}
+
+  .gallery-panel{position:relative;overflow:hidden}
+  .gallery-panel img{transition:transform .6s ease,filter .4s ease}
+  .gallery-panel:hover img{transform:scale(1.1);filter:saturate(1.4) contrast(1.1)}
+  .gallery-panel .overlay{
+    position:absolute;inset:0;pointer-events:none;
+    mix-blend-mode:multiply;
+  }
+  .panel-label{
+    position:absolute;font-family:'Bangers',cursive;letter-spacing:2px;
+    -webkit-text-stroke:2px var(--ink);paint-order:stroke fill;
+    text-shadow:3px 3px 0 var(--ink);
+  }
+
+  .pointer-fun{cursor:pointer}
+
+  .star-burst{
+    position:absolute;width:100%;height:100%;top:0;left:0;
+    background:repeating-conic-gradient(from 0deg at 50% 50%,
+      rgba(255,214,10,.5) 0deg 5deg,
+      transparent 5deg 15deg);
+    -webkit-mask:radial-gradient(circle,#000 30%,transparent 70%);
+    mask:radial-gradient(circle,#000 30%,transparent 70%);
+    animation:spin 18s linear infinite;
+  }
+
+  /* Polaroid */
+  .polaroid{
+    background:#fff;padding:14px 14px 50px;
+    box-shadow:8px 8px 0 var(--ink), 0 0 0 4px var(--ink);
+    transform:rotate(-3deg);
+    transition:transform .4s ease;
+  }
+  .polaroid:hover{transform:rotate(0deg) scale(1.05)}
+  .polaroid img{width:100%;display:block;border:2px solid var(--ink)}
+  .polaroid .caption{
+    font-family:'Bangers',cursive;letter-spacing:2px;
+    text-align:center;margin-top:8px;font-size:18px;color:var(--red);
+    -webkit-text-stroke:.5px var(--ink);
+  }
+
+  /* Photo strip */
+  .photo-strip{
+    display:flex;gap:12px;overflow-x:auto;padding:12px 0;
+    scrollbar-width:thin;scrollbar-color:var(--red) var(--cream);
+  }
+  .photo-strip::-webkit-scrollbar{height:8px}
+  .photo-strip::-webkit-scrollbar-track{background:var(--cream)}
+  .photo-strip::-webkit-scrollbar-thumb{background:var(--red);border-radius:4px}
+  .photo-strip-item{
+    flex:0 0 auto;width:220px;height:160px;
+    border:4px solid var(--ink);box-shadow:4px 4px 0 var(--ink);
+    overflow:hidden;position:relative;
+    transition:transform .3s ease;
+  }
+  .photo-strip-item:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:6px 6px 0 var(--ink)}
+  .photo-strip-item img{width:100%;height:100%;object-fit:cover}
+  .photo-strip-item .tag{
+    position:absolute;bottom:0;left:0;right:0;
+    font-family:'Bangers',cursive;letter-spacing:1px;font-size:14px;
+    background:var(--ink);color:var(--yellow);text-align:center;padding:3px 0;
+  }
+
+  @media (max-width:768px){
+    .hero-name{font-size:18vw !important}
+    .count-num{font-size:38px}
+  }
+</style>
+</head>
+<body>
+
+<!-- Speed lines -->
+<div class="fixed inset-0 pointer-events-none z-0 opacity-[.06]" style="background:repeating-conic-gradient(from 0deg at 50% 50%,var(--ink) 0deg .5deg,transparent .5deg 8deg);-webkit-mask:radial-gradient(circle at center,transparent 30%,#000 60%,transparent 100%);mask:radial-gradient(circle at center,transparent 30%,#000 60%,transparent 100%);animation:spin 60s linear infinite"></div>
+
+<!-- Petal layer -->
+<div id="petalLayer" class="fixed inset-0 pointer-events-none z-[5]"></div>
+
+<!-- NAV -->
+<nav class="sticky top-0 z-50 bg-[var(--cream)] border-b-4 border-[var(--ink)]">
+  <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-2">
+      <div class="w-10 h-10 bg-[var(--red)] border-[3px] border-[var(--ink)] rotate-[-6deg] flex items-center justify-center font-sfx text-white text-xl shadow-[3px_3px_0_var(--ink)]">S</div>
+      <span class="font-sfx text-2xl tracking-wider">SHAGUN'S DAY!</span>
+    </a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#about" class="nav-link">ABOUT</a>
+      <a href="#gallery" class="nav-link">GALLERY</a>
+      <a href="#love" class="nav-link">WHY WE LOVE HER</a>
+      <a href="#music" class="nav-link">OST</a>
+      <a href="#countdown" class="nav-link">COUNTDOWN</a>
+    </div>
+    <button onclick="document.getElementById('music').scrollIntoView({behavior:'smooth'})" class="btn-power text-sm py-2 px-4 hidden sm:block">PLAY OST!</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="burst-sun"></div>
+  <div class="speed-lines"></div>
+  <div class="absolute inset-0 halftone opacity-40"></div>
+
+  <div class="sfx text-[var(--red)] text-6xl md:text-8xl" style="top:18%;left:8%;--rot:-12deg">POW!</div>
+  <div class="sfx text-[var(--blue)] text-5xl md:text-7xl" style="top:24%;right:10%;--rot:10deg;animation-delay:.5s">BOOM!</div>
+  <div class="sfx text-[var(--orange)] text-5xl md:text-7xl" style="bottom:24%;left:10%;--rot:8deg;animation-delay:1s">ZAAP!</div>
+  <div class="sfx text-[var(--pink)] text-5xl md:text-7xl" style="bottom:18%;right:8%;--rot:-10deg;animation-delay:1.5s">DOKI!</div>
+
+  <div class="relative z-10 text-center px-4 max-w-5xl">
+    <div class="inline-block mb-4">
+      <span class="font-sfx tracking-[4px] bg-[var(--ink)] text-[var(--yellow)] px-4 py-1 text-sm md:text-base tilt-l shadow-[4px_4px_0_var(--red)]">CHAPTER 01 · 5TH SEPT</span>
+    </div>
+    <h1 class="font-display text-[14vw] md:text-[180px] hero-name">SHAGUN!</h1>
+    <div class="mt-2 md:mt-4">
+      <span class="font-sfx text-2xl md:text-5xl text-[var(--ink)]" style="-webkit-text-stroke:1px var(--ink)">HAPPY BIRTHDAY</span>
+    </div>
+    <p class="mt-6 mb-2"><span class="hero-sub text-lg md:text-3xl">5TH SEPTEMBER — HER DAY!</span></p>
+    <p class="font-body text-base md:text-xl mt-6 max-w-xl mx-auto font-semibold">A legendary hero joins the party. The friend with the fiercest loyalty, the loudest laugh, and the most chaotic vocabulary in all the land.</p>
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" class="btn-power">START THE ARC!</button>
+      <button onclick="document.getElementById('music').scrollIntoView({behavior:'smooth'})" class="btn-power" style="background:var(--red);color:#fff">HEAR THE OST!</button>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 scroll-cue text-[var(--ink)] font-sfx text-xl tracking-widest">
+    <i class="fa-solid fa-angles-down"></i> SCROLL
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="bg-[var(--ink)] text-[var(--yellow)] py-3 border-y-4 border-[var(--ink)] overflow-hidden">
+  <div class="marquee font-sfx text-2xl tracking-widest">
+    <span>HAPPY BIRTHDAY SHAGUN ★ BEST FRIEND MODE: MAX ★ SEPT 5 — HER DAY ★ POWER LEVEL: OVER 9000 ★ HAPPY BIRTHDAY SHAGUN ★ BEST FRIEND MODE: MAX ★ SEPT 5 — HER DAY ★ POWER LEVEL: OVER 9000 ★</span>
+    <span aria-hidden="true">HAPPY BIRTHDAY SHAGUN ★ BEST FRIEND MODE: MAX ★ SEPT 5 — HER DAY ★ POWER LEVEL: OVER 9000 ★ HAPPY BIRTHDAY SHAGUN ★ BEST FRIEND MODE: MAX ★ SEPT 5 — HER DAY ★ POWER LEVEL: OVER 9000 ★</span>
+  </div>
+</div>
+
+<!-- ABOUT HER -->
+<section id="about" class="relative py-20 md:py-28 px-5 overflow-hidden">
+  <div class="absolute inset-0 halftone-red opacity-30"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="text-center mb-14 reveal">
+      <span class="chapter-tag">CHARACTER FILE #001</span>
+      <h2 class="section-title text-6xl md:text-8xl mt-4" style="color:var(--red)">WHO IS SHE?</h2>
+      <p class="font-sfx text-2xl md:text-3xl mt-3 text-[var(--blue)]">A LEGEND AMONG US.</p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-6 items-stretch">
+      <!-- Character profile card -->
+      <div class="md:col-span-2 reveal">
+        <div class="manga-panel h-full p-6 bg-[var(--yellow)]">
+          <div class="halftone-red absolute inset-0 opacity-30"></div>
+          <div class="relative">
+            <div class="flex justify-between items-start mb-3">
+              <span class="font-sfx text-xl bg-[var(--ink)] text-[var(--yellow)] px-3 py-1">WANTED: ALIVE</span>
+              <span class="font-sfx text-2xl text-[var(--red)]">S-RANK</span>
+            </div>
+            <!-- Real photo avatar -->
+            <div class="bg-white border-4 border-[var(--ink)] aspect-square mb-4 relative overflow-hidden">
+              <div class="star-burst"></div>
+              <img src="https://z-cdn-media.chatglm.cn/files/75fa44da-e9da-423a-9a79-d605f430d90e.jpg?auth_key=1888548279-839467df1e1741dabc1a7c2f6819eecb-0-a12bacd3d7c2bfed1e56002e3cf99373"
+                   alt="Shagun in BE LIMITLESS t-shirt with V-sign"
+                   loading="lazy"
+                   class="absolute inset-0 w-full h-full object-cover relative z-10"
+                   style="filter:saturate(1.2) contrast(1.1)">
+              <div class="absolute inset-0 z-20" style="background:linear-gradient(180deg,transparent 60%,rgba(10,10,18,.5));mix-blend-mode:multiply"></div>
+              <div class="absolute bottom-2 left-2 z-30 font-sfx text-[var(--yellow)] text-lg" style="-webkit-text-stroke:1px var(--ink);text-shadow:2px 2px 0 var(--ink)">BE LIMITLESS!</div>
+            </div>
+            <div class="space-y-1 font-body">
+              <div class="flex justify-between border-b-2 border-[var(--ink)] py-1"><span class="font-bold">NAME</span><span class="font-sfx tracking-wide">SHAGUN JAGGI</span></div>
+              <div class="flex justify-between border-b-2 border-[var(--ink)] py-1"><span class="font-bold">CLASS</span><span class="font-sfx tracking-wide">BESTIE / LEGEND</span></div>
+              <div class="flex justify-between border-b-2 border-[var(--ink)] py-1"><span class="font-bold">POWER</span><span class="font-sfx tracking-wide">UNLIMITED</span></div>
+              <div class="flex justify-between border-b-2 border-[var(--ink)] py-1"><span class="font-bold">WEAKNESS</span><span class="font-sfx tracking-wide">THE LAST BITE</span></div>
+              <div class="flex justify-between py-1"><span class="font-bold">AFFINITY</span><span class="font-sfx tracking-wide">SAHAJ ❤</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="md:col-span-3 reveal">
+        <div class="manga-panel h-full p-7 md:p-10 bg-white relative">
+          <div class="absolute top-4 right-4 speech text-[var(--red)] text-xl">READ ME!</div>
+          <div class="mt-8">
+            <h3 class="font-sfx text-3xl md:text-4xl mb-4 text-[var(--red)]" style="-webkit-text-stroke:1px var(--ink)">THE HERO OF OUR STORY</h3>
+            <p class="font-body text-lg md:text-xl leading-relaxed mb-4">
+              Meet <span class="font-sfx text-[var(--red)] text-2xl tracking-wide">SHAGUN JAGGI</span> — a walking contradiction in the best possible way. She's got the <span class="font-bold underline decoration-[var(--yellow)] decoration-4">biggest heart</span> in any room… and a vocabulary that would make a sailor write a strongly worded letter to his mother.
+            </p>
+            <p class="font-body text-lg md:text-xl leading-relaxed mb-4">
+              She curses like a champion — <span class="italic">all love, zero malice</span>. Every word is delivered with a grin so warm you forget she just called you something unprintable.
+            </p>
+            <p class="font-body text-lg md:text-xl leading-relaxed mb-4">
+              A <span class="font-sfx text-[var(--orange)] text-2xl">CERTIFIED FOODIE</span>. She will fight you for the last bite. She will win. She will then offer you half because, again — biggest heart.
+            </p>
+            <p class="font-body text-lg md:text-xl leading-relaxed">
+              And then there's <span class="font-sfx text-[var(--pink)] text-2xl">SAHAJ</span>. Hopelessly, adorably, disgustingly cute about him. The kind of love story that makes even the most stoic side-character believe in romance again.
+            </p>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="font-sfx text-lg bg-[var(--red)] text-white px-3 py-1 border-[3px] border-[var(--ink)] shadow-[3px_3px_0_var(--ink)]">BIG HEART</span>
+            <span class="font-sfx text-lg bg-[var(--blue)] text-white px-3 py-1 border-[3px] border-[var(--ink)] shadow-[3px_3px_0_var(--ink)]">FOODIE</span>
+            <span class="font-sfx text-lg bg-[var(--yellow)] text-[var(--ink)] px-3 py-1 border-[3px] border-[var(--ink)] shadow-[3px_3px_0_var(--ink)]">SAHAJ'S</span>
+            <span class="font-sfx text-lg bg-[var(--ink)] text-[var(--yellow)] px-3 py-1 border-[3px] border-[var(--ink)] shadow-[3px_3px_0_var(--red)]">CHAOS MODE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Memory strip -->
+    <div class="mt-10 reveal">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-sfx text-2xl text-[var(--red)]" style="-webkit-text-stroke:1px var(--ink)">EVIDENCE LOG</span>
+        <div class="flex-1 border-b-4 border-[var(--ink)]"></div>
+        <span class="font-sfx text-sm text-[var(--blue)]">SWIPE →</span>
+      </div>
+      <div class="photo-strip">
+        <div class="photo-strip-item">
+          <img src="https://z-cdn-media.chatglm.cn/files/be4c9c4c-9808-490f-9581-fe7273ef1a8f.jpeg?auth_key=1888548279-3d7d98e8380940f388f9b6955fc1d2e2-0-008fff743727064416d630a55d28308e" alt="Selfie with white sunglasses" loading="lazy">
+          <div class="tag">VIBE CHECK!</div>
+        </div>
+        <div class="photo-strip-item">
+          <img src="https://z-cdn-media.chatglm.cn/files/1f12131a-83f2-489d-878f-d290fb311dd1.jpeg?auth_key=1888548279-b13b602bcf014da999bbc214551bb8c8-0-36b957b1249f5d8cfb840829f2a98fe5" alt="Selfie with cartoon sunglasses" loading="lazy">
+          <div class="tag">FUN MODE!</div>
+        </div>
+        <div class="photo-strip-item">
+          <img src="https://z-cdn-media.chatglm.cn/files/e95094ef-f77e-4d09-a7dd-3e7aa9a3d345.jpeg?auth_key=1888548279-517e58257f3843949d535dd037669081-0-c891af339b929046d123679050546137" alt="Group at laptops" loading="lazy">
+          <div class="tag">SQUAD MODE!</div>
+        </div>
+        <div class="photo-strip-item">
+          <img src="https://z-cdn-media.chatglm.cn/files/df59670f-ddd6-4673-b14c-656f1ef5c69e.jpg?auth_key=1888548279-83fb99c3b5364f798d835ffde8512e5a-0-eda24417671ba580157c0d5a164fafdf" alt="Group outside building" loading="lazy">
+          <div class="tag">OUTDOOR ARC!</div>
+        </div>
+        <div class="photo-strip-item">
+          <img src="https://z-cdn-media.chatglm.cn/files/0edda980-a4e1-4573-8beb-73cda4f8e411.jpg?auth_key=1888548279-3cdfdd0ffe1e41e68ce57128619f9768-0-98b1eadb16d9b2a8591b976253b3c5ca" alt="Group outside glass building" loading="lazy">
+          <div class="tag">CREW ENERGY!</div>
+        </div>
+        <div class="photo-strip-item">
+          <img src="https://z-cdn-media.chatglm.cn/files/75fa44da-e9da-423a-9a79-d605f430d90e.jpg?auth_key=1888548279-839467df1e1741dabc1a7c2f6819eecb-0-a12bacd3d7c2bfed1e56002e3cf99373" alt="BE LIMITLESS V-sign" loading="lazy">
+          <div class="tag">LIMITLESS!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="relative py-20 md:py-28 px-5 bg-[var(--ink)] overflow-hidden">
+  <div class="absolute inset-0 halftone-yellow opacity-10"></div>
+  <div class="max-w-7xl mx-auto relative">
+    <div class="text-center mb-14 reveal">
+      <span class="chapter-tag" style="background:var(--red);color:#fff">CHAPTER 02 · EVIDENCE</span>
+      <h2 class="section-title text-6xl md:text-8xl mt-4" style="color:var(--yellow)">THE GALLERY</h2>
+      <p class="font-sfx text-2xl md:text-3xl mt-3 text-[var(--electric)]">SHAGUN IN ACTION!</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[140px] md:auto-rows-[200px]">
+      <!-- Panel 1: BE LIMITLESS (big) -->
+      <div class="gallery-panel manga-panel col-span-2 row-span-2 reveal" style="background:var(--red)">
+        <img src="https://z-cdn-media.chatglm.cn/files/75fa44da-e9da-423a-9a79-d605f430d90e.jpg?auth_key=1888548279-839467df1e1741dabc1a7c2f6819eecb-0-a12bacd3d7c2bfed1e56002e3cf99373"
+             alt="Shagun in BE LIMITLESS t-shirt with V-sign"
+             loading="lazy"
+             class="w-full h-full object-cover"
+             style="filter:saturate(1.3) contrast(1.15)">
+        <div class="overlay" style="background:linear-gradient(135deg,rgba(255,45,85,.45),rgba(255,107,53,.3))"></div>
+        <div class="absolute inset-0 halftone opacity-20"></div>
+        <div class="panel-label top-3 left-3 text-3xl md:text-5xl text-[var(--yellow)]">BE LIMITLESS!</div>
+        <div class="absolute bottom-3 right-3 speech text-[var(--ink)] text-base md:text-lg">HER ENERGY? OFF THE CHARTS.</div>
+      </div>
+
+      <!-- Panel 2: Squad at laptops (wide) -->
+      <div class="gallery-panel manga-panel col-span-2 row-span-1 reveal" style="background:var(--yellow)">
+        <img src="https://z-cdn-media.chatglm.cn/files/e95094ef-f77e-4d09-a7dd-3e7aa9a3d345.jpeg?auth_key=1888548279-517e58257f3843949d535dd037669081-0-c891af339b929046d123679050546137"
+             alt="Group at laptops during training"
+             loading="lazy"
+             class="w-full h-full object-cover"
+             style="filter:saturate(1.2) contrast(1.1)">
+        <div class="overlay" style="background:linear-gradient(90deg,rgba(255,214,10,.4),transparent 50%,rgba(30,111,255,.35))"></div>
+        <div class="panel-label top-2 left-2 text-2xl md:text-4xl text-[var(--red)]">SQUAD MODE!</div>
+        <div class="absolute bottom-2 right-2 font-sfx text-lg md:text-2xl text-white" style="-webkit-text-stroke:1.5px var(--ink)">TEAM UP!</div>
+      </div>
+
+      <!-- Panel 3: Selfie with sunglasses (big) -->
+      <div class="gallery-panel manga-panel col-span-2 row-span-2 reveal" style="background:var(--pink)">
+        <img src="https://z-cdn-media.chatglm.cn/files/be4c9c4c-9808-490f-9581-fe7273ef1a8f.jpeg?auth_key=1888548279-3d7d98e8380940f388f9b6955fc1d2e2-0-008fff743727064416d630a55d28308e"
+             alt="Three people selfie with white sunglasses and heart stickers"
+             loading="lazy"
+             class="w-full h-full object-cover"
+             style="filter:saturate(1.2) contrast(1.05)">
+        <div class="overlay" style="background:linear-gradient(180deg,rgba(255,60,172,.3),rgba(255,45,85,.4))"></div>
+        <div class="absolute inset-0 halftone opacity-15"></div>
+        <div class="panel-label top-3 left-3 text-3xl md:text-5xl text-white">VIBE CHECK!</div>
+        <div class="absolute bottom-3 left-3 font-sfx text-lg md:text-2xl text-[var(--yellow)]" style="-webkit-text-stroke:1.5px var(--ink)">BESTIE ENERGY!</div>
+        <div class="absolute top-3 right-3 text-3xl md:text-4xl" style="color:var(--red);text-shadow:2px 2px 0 var(--ink)"><i class="fa-solid fa-heart"></i></div>
+      </div>
+
+      <!-- Panel 4: SFX BAM! -->
+      <div class="gallery-panel manga-panel col-span-1 row-span-1 reveal flex items-center justify-center" style="background:var(--blue)">
+        <div class="star-burst" style="opacity:.6"></div>
+        <span class="font-sfx text-3xl md:text-5xl text-[var(--yellow)] relative" style="-webkit-text-stroke:2px var(--ink);text-shadow:3px 3px 0 var(--ink);transform:rotate(-8deg)">BAM!</span>
+      </div>
+
+      <!-- Panel 5: Selfie with cartoon sunglasses -->
+      <div class="gallery-panel manga-panel col-span-1 row-span-1 reveal" style="background:var(--orange)">
+        <img src="https://z-cdn-media.chatglm.cn/files/1f12131a-83f2-489d-878f-d290fb311dd1.jpeg?auth_key=1888548279-b13b602bcf014da999bbc214551bb8c8-0-36b957b1249f5d8cfb840829f2a98fe5"
+             alt="Three people selfie with cartoon sunglasses and heart stickers"
+             loading="lazy"
+             class="w-full h-full object-cover"
+             style="filter:saturate(1.3) contrast(1.15)">
+        <div class="overlay" style="background:linear-gradient(135deg,rgba(255,107,53,.45),rgba(255,214,10,.3))"></div>
+        <div class="panel-label bottom-2 left-2 text-xl md:text-3xl text-white">FUN MODE!</div>
+      </div>
+
+      <!-- Panel 6: Group outside building (wide) -->
+      <div class="gallery-panel manga-panel col-span-2 row-span-1 reveal" style="background:var(--electric)">
+        <img src="https://z-cdn-media.chatglm.cn/files/df59670f-ddd6-4673-b14c-656f1ef5c69e.jpg?auth_key=1888548279-83fb99c3b5364f798d835ffde8512e5a-0-eda24417671ba580157c0d5a164fafdf"
+             alt="Five people group photo outside building with lanyards"
+             loading="lazy"
+             class="w-full h-full object-cover"
+             style="filter:saturate(1.2) contrast(1.1)">
+        <div class="overlay" style="background:linear-gradient(90deg,rgba(0,194,255,.3),transparent 40%,rgba(30,111,255,.35))"></div>
+        <div class="panel-label top-2 left-2 text-2xl md:text-4xl text-[var(--yellow)]">OUTDOOR ARC!</div>
+        <div class="absolute bottom-2 right-2 font-sfx text-lg md:text-2xl text-white" style="-webkit-text-stroke:1.5px var(--ink)">SQUAD GOALS!</div>
+      </div>
+
+      <!-- Panel 7: Group outside glass building -->
+      <div class="gallery-panel manga-panel col-span-1 row-span-1 reveal" style="background:var(--yellow)">
+        <img src="https://z-cdn-media.chatglm.cn/files/0edda980-a4e1-4573-8beb-73cda4f8e411.jpg?auth_key=1888548279-3cdfdd0ffe1e41e68ce57128619f9768-0-98b1eadb16d9b2a8591b976253b3c5ca"
+             alt="Five people group outside glass building"
+             loading="lazy"
+             class="w-full h-full object-cover"
+             style="filter:saturate(1.2) contrast(1.1)">
+        <div class="overlay" style="background:linear-gradient(180deg,rgba(255,214,10,.3),rgba(255,45,85,.35))"></div>
+        <div class="panel-label top-2 left-2 text-xl md:text-3xl text-[var(--red)]">CREW!</div>
+      </div>
+
+      <!-- Panel 8: SFX DOKI DOKI -->
+      <div class="gallery-panel manga-panel col-span-1 row-span-1 reveal flex items-center justify-center" style="background:var(--red)">
+        <div class="star-burst" style="opacity:.5"></div>
+        <span class="font-sfx text-3xl md:text-5xl text-white relative" style="-webkit-text-stroke:2px var(--ink);text-shadow:3px 3px 0 var(--ink);transform:rotate(6deg)">DOKI DOKI</span>
+      </div>
+    </div>
+
+    <p class="text-center mt-8 font-sfx text-xl md:text-2xl text-[var(--yellow)] reveal">Hover the panels. We dare you.</p>
+  </div>
+</section>
+
+<!-- WHY WE LOVE HER -->
+<section id="love" class="relative py-20 md:py-28 px-5 overflow-hidden">
+  <div class="absolute inset-0 halftone-blue opacity-25"></div>
+  <div class="max-w-7xl mx-auto relative">
+    <div class="text-center mb-14 reveal">
+      <span class="chapter-tag" style="background:var(--blue);color:#fff">CHAPTER 03 · TRAITS</span>
+      <h2 class="section-title text-5xl md:text-8xl mt-4" style="color:var(--blue)">WHY WE LOVE SHAGUN</h2>
+      <p class="font-sfx text-2xl md:text-3xl mt-3 text-[var(--red)]">FOUR REASONS. ZERO CHILL.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal">
+        <div class="manga-panel h-full p-6 bg-[var(--red)] text-white relative tilt-l">
+          <div class="absolute inset-0 halftone opacity-20"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-sfx text-3xl md:text-4xl" style="-webkit-text-stroke:1.5px var(--ink);text-shadow:3px 3px 0 var(--ink)">#@&%!</span>
+              <span class="font-sfx text-sm bg-[var(--ink)] text-[var(--yellow)] px-2 py-1">TRAIT 01</span>
+            </div>
+            <h3 class="font-sfx text-2xl md:text-3xl mb-2 text-[var(--yellow)]" style="-webkit-text-stroke:1px var(--ink)">COLORFUL VOCAB</h3>
+            <p class="font-body text-base md:text-lg">She swears like a sailor on payday. Loud, creative, occasionally multilingual. But it's always wrapped in so much love you'd thank her for the insult.</p>
+            <div class="mt-4 speech text-[var(--red)] text-base inline-block">"Listen, you absolute [REDACTED]… I love you."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="manga-panel h-full p-6 bg-[var(--yellow)] text-[var(--ink)] relative tilt-r">
+          <div class="absolute inset-0 halftone-red opacity-20"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-sfx text-3xl md:text-4xl" style="-webkit-text-stroke:1.5px var(--ink);text-shadow:3px 3px 0 var(--ink)">RAMEN!</span>
+              <span class="font-sfx text-sm bg-[var(--ink)] text-[var(--yellow)] px-2 py-1">TRAIT 02</span>
+            </div>
+            <h3 class="font-sfx text-2xl md:text-3xl mb-2 text-[var(--red)]" style="-webkit-text-stroke:1px var(--ink)">FOOD OBSESSION</h3>
+            <p class="font-body text-base md:text-lg">Certified foodie. Will plan her whole day around a meal. Will fight you for the last bite. Will then quietly offer you a bite of hers because she's soft like that.</p>
+            <div class="mt-4 speech text-[var(--ink)] text-base inline-block">"Touch my fries and pray."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="manga-panel h-full p-6 bg-[var(--blue)] text-white relative tilt-l">
+          <div class="absolute inset-0 halftone opacity-20"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-sfx text-3xl md:text-4xl" style="-webkit-text-stroke:1.5px var(--ink);text-shadow:3px 3px 0 var(--ink)">RIDE!</span>
+              <span class="font-sfx text-sm bg-[var(--ink)] text-[var(--yellow)] px-2 py-1">TRAIT 03</span>
+            </div>
+            <h3 class="font-sfx text-2xl md:text-3xl mb-2 text-[var(--yellow)]" style="-webkit-text-stroke:1px var(--ink)">RIDE-OR-DIE LOYAL</h3>
+            <p class="font-body text-base md:text-lg">Show up for her people like it's her full-time job. Defends her friends harder than she defends her plate. If she's in your corner, you've already won.</p>
+            <div class="mt-4 speech text-[var(--blue)] text-base inline-block">"Nobody talks about MY people."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.3s">
+        <div class="manga-panel h-full p-6 bg-[var(--pink)] text-white relative tilt-r">
+          <div class="absolute inset-0 halftone opacity-20"></div>
+          <div class="relative">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-sfx text-3xl md:text-4xl" style="-webkit-text-stroke:1.5px var(--ink);text-shadow:3px 3px 0 var(--ink)"><i class="fa-solid fa-heart"></i></span>
+              <span class="font-sfx text-sm bg-[var(--ink)] text-[var(--yellow)] px-2 py-1">TRAIT 04</span>
+            </div>
+            <h3 class="font-sfx text-2xl md:text-3xl mb-2 text-[var(--yellow)]" style="-webkit-text-stroke:1px var(--ink)">SAHAJ'S SUNSHINE</h3>
+            <p class="font-body text-base md:text-lg">Hopelessly, adorably, disgustingly in love with Sahaj. The kind of cute that makes you gag and smile at the same time. Their love story? Better than any shonen arc.</p>
+            <div class="mt-4 speech text-[var(--pink)] text-base inline-block">"Don't tell him I said that."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC / OST -->
+<section id="music" class="relative py-20 md:py-28 px-5 bg-[var(--ink)] text-white overflow-hidden">
+  <div class="absolute inset-0 halftone-yellow opacity-10"></div>
+  <div class="absolute top-10 left-10 sfx text-[var(--yellow)] text-6xl" style="--rot:-10deg;position:absolute">BGM!</div>
+  <div class="absolute bottom-10 right-10 sfx text-[var(--red)] text-6xl" style="--rot:8deg;position:absolute;animation-delay:.7s">ON!</div>
+
+  <div class="max-w-5xl mx-auto relative">
+    <div class="text-center mb-14 reveal">
+      <span class="chapter-tag" style="background:var(--yellow);color:var(--ink)">CHAPTER 04 · BGM</span>
+      <h2 class="section-title text-5xl md:text-8xl mt-4" style="color:var(--electric)">THE OFFICIAL OST</h2>
+      <p class="font-sfx text-2xl md:text-3xl mt-3 text-[var(--yellow)]">PRESS PLAY. ENTER BOSS FIGHT.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="comic-frame bg-[var(--cream)] text-[var(--ink)] p-6 md:p-10 relative overflow-hidden">
+        <div class="absolute inset-0 halftone-red opacity-15"></div>
+        <div class="relative grid md:grid-cols-[200px_1fr] gap-8 items-center">
+          <div class="flex justify-center">
+            <div id="discWrap" class="disc-paused relative">
+              <div class="disc w-44 h-44 md:w-52 md:h-52 rounded-full border-4 border-[var(--ink)] relative" style="background:repeating-radial-gradient(circle at center,#0A0A12 0px,#0A0A12 2px,#1a1a2e 3px,#0A0A12 4px)">
+                <div class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at center,transparent 50%,rgba(255,255,255,.06) 60%,transparent 70%)"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border-4 border-[var(--ink)] flex items-center justify-center" style="background:linear-gradient(135deg,var(--red),var(--orange))">
+                  <span class="font-sfx text-[var(--yellow)] text-xl" style="-webkit-text-stroke:.5px var(--ink)">SJ</span>
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[var(--ink)]"></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="font-sfx text-sm bg-[var(--ink)] text-[var(--yellow)] px-2 py-1">NOW PLAYING</span>
+              <span class="font-sfx text-sm text-[var(--red)]">— SHAGUN'S BIRTHDAY THEME</span>
+            </div>
+            <h3 class="font-sfx text-3xl md:text-5xl mb-1 text-[var(--red)]" style="-webkit-text-stroke:1.5px var(--ink)">HAPPY BIRTHDAY, LEGEND!</h3>
+            <p class="font-body text-base text-[var(--ink)]/70 mb-4">Original chiptune arc · composed with love · 0:30 loop</p>
+
+            <div id="eqVis" class="eq-paused flex items-end gap-1 h-12 mb-5">
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+              <div class="eq-bar"></div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <button id="playBtn" class="btn-power flex items-center gap-2">
+                <i class="fa-solid fa-play"></i> <span id="playLabel">PLAY</span>
+              </button>
+              <button id="stopBtn" class="btn-power flex items-center gap-2" style="background:var(--blue);color:#fff">
+                <i class="fa-solid fa-stop"></i> STOP
+              </button>
+              <div class="flex items-center gap-2 ml-2">
+                <i class="fa-solid fa-volume-high"></i>
+                <input id="vol" type="range" min="0" max="100" value="55" class="w-28 accent-[var(--red)]">
+              </div>
+            </div>
+
+            <div class="mt-6 border-t-4 border-[var(--ink)] pt-4 space-y-2">
+              <div class="flex items-center justify-between font-sfx text-lg hover:text-[var(--red)] cursor-pointer pointer-fun" onclick="startMusic()">
+                <span><i class="fa-solid fa-music text-[var(--red)]"></i> TRACK 01 — HAPPY BIRTHDAY, LEGEND!</span>
+                <span class="text-sm">0:30</span>
+              </div>
+              <div class="flex items-center justify-between font-sfx text-lg opacity-50">
+                <span><i class="fa-solid fa-music"></i> TRACK 02 — FOODIE ANTHEM (COMING SOON)</span>
+                <span class="text-sm">—:—</span>
+              </div>
+              <div class="flex items-center justify-between font-sfx text-lg opacity-50">
+                <span><i class="fa-solid fa-music"></i> TRACK 03 — SAHAJ'S SERENADE (COMING SOON)</span>
+                <span class="text-sm">—:—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown" class="relative py-20 md:py-28 px-5 overflow-hidden">
+  <div class="absolute inset-0 halftone-red opacity-30"></div>
+  <div class="max-w-5xl mx-auto relative">
+    <div class="text-center mb-12 reveal">
+      <span class="chapter-tag" style="background:var(--orange);color:#fff">FINAL CHAPTER · T-MINUS</span>
+      <h2 class="section-title text-5xl md:text-8xl mt-4" style="color:var(--orange)">THE COUNTDOWN</h2>
+      <p class="font-sfx text-2xl md:text-3xl mt-3 text-[var(--blue)]" id="countdownSub">SEPTEMBER 5 — THE BATTLE BEGINS.</p>
+    </div>
+
+    <div class="reveal">
+      <div id="countdownGrid" class="grid grid-cols-4 gap-3 md:gap-5 max-w-3xl mx-auto">
+        <div class="count-box">
+          <div class="count-num" id="cdDays">00</div>
+          <div class="count-label">DAYS</div>
+        </div>
+        <div class="count-box" style="transform:rotate(1deg);box-shadow:6px 6px 0 var(--blue)">
+          <div class="count-num" id="cdHours">00</div>
+          <div class="count-label">HOURS</div>
+        </div>
+        <div class="count-box" style="transform:rotate(-1deg);box-shadow:6px 6px 0 var(--yellow)">
+          <div class="count-num" id="cdMins">00</div>
+          <div class="count-label">MINUTES</div>
+        </div>
+        <div class="count-box" style="transform:rotate(1deg);box-shadow:6px 6px 0 var(--pink)">
+          <div class="count-num" id="cdSecs">00</div>
+          <div class="count-label">SECONDS</div>
+        </div>
+      </div>
+
+      <div id="celebrationMsg" class="hidden text-center mt-10">
+        <h3 class="font-sfx text-5xl md:text-7xl text-[var(--red)]" style="-webkit-text-stroke:2px var(--ink);text-shadow:6px 6px 0 var(--ink)">IT'S HER DAY!</h3>
+        <p class="font-body text-xl md:text-2xl mt-4 font-bold">The arc has begun. The legend levels up. Happy Birthday, Shagun!</p>
+        <button onclick="megaBurst()" class="btn-power mt-6" style="background:var(--red);color:#fff">FIRE THE CONFETTI!</button>
+      </div>
+    </div>
+
+    <!-- Closing message with polaroid -->
+    <div class="mt-16 reveal">
+      <div class="max-w-3xl mx-auto">
+        <div class="manga-panel p-8 md:p-10 bg-white relative">
+          <div class="absolute -top-5 left-1/2 -translate-x-1/2 speech text-[var(--red)] text-2xl">PSST… SHAGUN!</div>
+          <div class="mt-6 grid md:grid-cols-[180px_1fr] gap-6 items-center">
+            <!-- Polaroid photo -->
+            <div class="polaroid mx-auto md:mx-0" style="max-width:200px">
+              <img src="https://z-cdn-media.chatglm.cn/files/75fa44da-e9da-423a-9a79-d605f430d90e.jpg?auth_key=1888548279-839467df1e1741dabc1a7c2f6819eecb-0-a12bacd3d7c2bfed1e56002e3cf99373"
+                   alt="Shagun BE LIMITLESS"
+                   loading="lazy">
+              <div class="caption">THE LEGEND!</div>
+            </div>
+            <div>
+              <h3 class="font-sfx text-3xl md:text-5xl text-[var(--red)] mb-4" style="-webkit-text-stroke:1.5px var(--ink)">FROM YOUR BEST FRIEND…</h3>
+              <p class="font-body text-lg md:text-xl leading-relaxed mb-3">
+                You're the kind of friend people write entire shonen arcs about. The sidekick who's secretly the main character. The chaos gremlin with the softest heart. The one who shows up, swears loudly, and somehow makes everything better.
+              </p>
+              <p class="font-body text-lg md:text-xl leading-relaxed mb-3">
+                May your year be loaded with epic food, dreamy moments with Sahaj, zero boring arcs, and a power level that just keeps climbing.
+              </p>
+              <p class="font-sfx text-2xl md:text-3xl text-[var(--blue)] mt-4" style="-webkit-text-stroke:1px var(--ink)">HAPPY BIRTHDAY, LEGEND. GO SAVE THE WORLD.</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="font-sfx text-base bg-[var(--yellow)] px-3 py-1 border-[3px] border-[var(--ink)] shadow-[3px_3px_0_var(--ink)]">LV. UP!</span>
+                <span class="font-sfx text-base bg-[var(--red)] text-white px-3 py-1 border-[3px] border-[var(--ink)] shadow-[3px_3px_0_var(--ink)]">BESTIE POWERS MAX</span>
+                <span class="font-sfx text-base bg-[var(--blue)] text-white px-3 py-1 border-[3px] border-[var(--ink)] shadow-[3px_3px_0_var(--ink)]">SAHAJ APPROVED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[var(--ink)] text-[var(--cream)] py-10 px-5 border-t-4 border-[var(--yellow)]">
+  <div class="max-w-7xl mx-auto text-center">
+    <div class="font-sfx text-3xl md:text-4xl text-[var(--yellow)]" style="-webkit-text-stroke:1px var(--ink)">HAPPY BIRTHDAY SHAGUN!</div>
+    <p class="font-body mt-2 opacity-70">A one-page manga made with love · September 5th · Power Level: OVER 9000</p>
+    <div class="mt-4 flex justify-center gap-4 text-2xl">
+      <span class="text-[var(--red)]"><i class="fa-solid fa-heart"></i></span>
+      <span class="text-[var(--yellow)]"><i class="fa-solid fa-star"></i></span>
+      <span class="text-[var(--blue)]"><i class="fa-solid fa-bolt"></i></span>
+      <span class="text-[var(--pink)]"><i class="fa-solid fa-fire"></i></span>
+    </div>
+    <p class="font-sfx tracking-widest text-sm mt-6 opacity-50">CHAPTER END · NEXT EPISODE: HER BIRTHDAY</p>
+  </div>
+</footer>
+
+<script>
+/* ============ PETALS / CONFETTI ============ */
+const petalLayer = document.getElementById('petalLayer');
+const petalColors = ['#FF2D55','#FF6B35','#FFD60A','#1E6FFF','#FF3CAC','#00C2FF','#fff'];
+const petalShapes = ['petal','square','circle'];
+
+function spawnPetal(){
+  const el = document.createElement('div');
+  el.className = 'petal';
+  const size = 8 + Math.random()*14;
+  const shape = petalShapes[Math.floor(Math.random()*petalShapes.length)];
+  const color = petalColors[Math.floor(Math.random()*petalColors.length)];
+  const left = Math.random()*100;
+  const dur = 6 + Math.random()*7;
+  const drift = (Math.random()-0.5)*220;
+  const rot = (Math.random()-0.5)*40;
+  
+  if(shape === 'petal'){
+    el.style.width = size+'px';
+    el.style.height = (size*1.4)+'px';
+    el.style.background = color;
+    el.style.borderRadius = '50% 0 50% 50%';
+    el.style.border = '1.5px solid rgba(10,10,18,.4)';
+  } else if(shape === 'square'){
+    el.style.width = size+'px';
+    el.style.height = size+'px';
+    el.style.background = color;
+    el.style.border = '1.5px solid rgba(10,10,18,.4)';
+  } else {
+    el.style.width = size+'px';
+    el.style.height = size+'px';
+    el.style.background = color;
+    el.style.borderRadius = '50%';
+    el.style.border = '1.5px solid rgba(10,10,18,.4)';
+  }
+  
+  el.style.left = left+'vw';
+  el.style.setProperty('--drift', drift+'px');
+  el.style.animation = `fall ${dur}s linear forwards`;
+  el.style.transform = `rotate(${rot}deg)`;
+  el.style.zIndex = Math.random() > .5 ? 8 : 3;
+  el.style.opacity = .7 + Math.random()*.3;
+  
+  petalLayer.appendChild(el);
+  setTimeout(()=>el.remove(), dur*1000+200);
+}
+
+setInterval(spawnPetal, 220);
+for(let i=0;i<14;i++) setTimeout(spawnPetal, i*80);
+
+/* ============ REVEAL ON SCROLL ============ */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ============ MEGA BURST ============ */
+function megaBurst(){
+  for(let i=0;i<80;i++){
+    setTimeout(spawnPetal, i*15);
+  }
+}
+
+/* ============ WEB AUDIO — HAPPY BIRTHDAY ============ */
+const noteSeq = [
+  {f:392.00,d:.30}, {f:392.00,d:.30}, {f:440.00,d:.60}, {f:392.00,d:.60}, {f:523.25,d:.60}, {f:493.88,d:1.20},
+  {f:392.00,d:.30}, {f:392.00,d:.30}, {f:440.00,d:.60}, {f:392.00,d:.60}, {f:587.33,d:.60}, {f:523.25,d:1.20},
+  {f:392.00,d:.30}, {f:392.00,d:.30}, {f:783.99,d:.60}, {f:659.25,d:.60}, {f:523.25,d:.60}, {f:493.88,d:.60}, {f:440.00,d:1.20},
+  {f:349.23,d:.30}, {f:349.23,d:.30}, {f:329.63,d:.60}, {f:261.63,d:.60}, {f:293.66,d:.60}, {f:261.63,d:1.40}
+];
+
+let audioCtx = null;
+let isPlaying = false;
+let timerArr = [];
+let gainMain = null;
+
+function startMusic(){
+  if(isPlaying) return;
+  if(!audioCtx){
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+  
+  isPlaying = true;
+  document.getElementById('playLabel').textContent = 'PAUSE';
+  document.getElementById('playBtn').querySelector('i').className = 'fa-solid fa-pause';
+  document.getElementById('discWrap').classList.remove('disc-paused');
+  document.getElementById('eqVis').classList.remove('eq-paused');
+  
+  const vol = (document.getElementById('vol').value || 55) / 100;
+  gainMain = audioCtx.createGain();
+  gainMain.gain.value = vol * 0.4;
+  gainMain.connect(audioCtx.destination);
+  
+  let t = audioCtx.currentTime + 0.05;
+  const loop = ()=>{
+    noteSeq.forEach(n=>{
+      const osc = audioCtx.createOscillator();
+      osc.type = 'square';
+      osc.frequency.value = n.f;
+      const g = audioCtx.createGain();
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.18, t+0.02);
+      g.gain.linearRampToValueAtTime(0.12, t+n.d*0.7);
+      g.gain.linearRampToValueAtTime(0, t+n.d*0.95);
+      osc.connect(g); g.connect(gainMain);
+      osc.start(t); osc.stop(t+n.d);
+      
+      const osc2 = audioCtx.createOscillator();
+      osc2.type = 'triangle';
+      osc2.frequency.value = n.f/2;
+      const g2 = audioCtx.createGain();
+      g2.gain.setValueAtTime(0, t);
+      g2.gain.linearRampToValueAtTime(0.08, t+0.03);
+      g2.gain.linearRampToValueAtTime(0, t+n.d*0.9);
+      osc2.connect(g2); g2.connect(gainMain);
+      osc2.start(t); osc2.stop(t+n.d);
+      
+      t += n.d;
+    });
+    
+    const totalDur = noteSeq.reduce((s,n)=>s+n.d,0);
+    const loopId = setTimeout(()=>{
+      if(isPlaying){ loop(); }
+    }, totalDur*1000);
+    timerArr.push(loopId);
+  };
+  loop();
+}
+
+function stopMusic(){
+  isPlaying = false;
+  timerArr.forEach(id=>clearTimeout(id));
+  timerArr = [];
+  if(gainMain){
+    try{ gainMain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.05); }catch(e){}
+  }
+  document.getElementById('playLabel').textContent = 'PLAY';
+  document.getElementById('playBtn').querySelector('i').className = 'fa-solid fa-play';
+  document.getElementById('discWrap').classList.add('disc-paused');
+  document.getElementById('eqVis').classList.add('eq-paused');
+}
+
+document.getElementById('playBtn').addEventListener('click', ()=>{
+  if(isPlaying){ stopMusic(); }
+  else { startMusic(); }
+});
+document.getElementById('stopBtn').addEventListener('click', stopMusic);
+document.getElementById('vol').addEventListener('input', (e)=>{
+  if(gainMain && audioCtx){
+    gainMain.gain.value = (e.target.value/100) * 0.4;
+  }
+});
+
+/* ============ COUNTDOWN ============ */
+function getNextSept5(){
+  const now = new Date();
+  let year = now.getFullYear();
+  let target = new Date(year, 8, 5, 0, 0, 0);
+  if(now > target && now.getMonth() === 8 && now.getDate() === 5){
+    return target;
+  }
+  if(now > target){
+    target = new Date(year+1, 8, 5, 0, 0, 0);
+  }
+  return target;
+}
+
+const target = getNextSept5();
+const cdDays = document.getElementById('cdDays');
+const cdHours = document.getElementById('cdHours');
+const cdMins = document.getElementById('cdMins');
+const cdSecs = document.getElementById('cdSecs');
+const cdGrid = document.getElementById('countdownGrid');
+const cdMsg = document.getElementById('celebrationMsg');
+const cdSub = document.getElementById('countdownSub');
+
+function pad(n){ return String(Math.max(0,n)).padStart(2,'0'); }
+
+function tick(){
+  const now = new Date();
+  const diff = target - now;
+  
+  if(now.getMonth() === 8 && now.getDate() === 5){
+    cdGrid.classList.add('hidden');
+    cdMsg.classList.remove('hidden');
+    cdSub.textContent = "TODAY IS THE DAY. THE LEGEND LEVELS UP!";
+    return;
+  }
+  
+  if(diff <= 0){
+    cdGrid.classList.add('hidden');
+    cdMsg.classList.remove('hidden');
+    cdSub.textContent = "THE ARC HAS BEGUN!";
+    return;
+  }
+  
+  const d = Math.floor(diff/86400000);
+  const h = Math.floor((diff%86400000)/3600000);
+  const m = Math.floor((diff%3600000)/60000);
+  const s = Math.floor((diff%60000)/1000);
+  
+  cdDays.textContent = pad(d);
+  cdHours.textContent = pad(h);
+  cdMins.textContent = pad(m);
+  cdSecs.textContent = pad(s);
+}
+tick();
+setInterval(tick, 1000);
+
+/* ============ HEART BURST ON PANEL 3 (selfie) ============ */
+const couplePanel = document.querySelectorAll('.gallery-panel')[2];
+if(couplePanel){
+  couplePanel.addEventListener('mouseenter', ()=>{
+    for(let i=0;i<8;i++){
+      setTimeout(()=>{
+        const h = document.createElement('div');
+        h.innerHTML = '<i class="fa-solid fa-heart"></i>';
+        h.style.cssText = `position:absolute;color:var(--red);font-size:${14+Math.random()*16}px;left:${20+Math.random()*60}%;top:80%;pointer-events:none;z-index:10;animation:heart-up ${1.5+Math.random()}s ease-out forwards;text-shadow:2px 2px 0 var(--ink)`;
+        couplePanel.appendChild(h);
+        setTimeout(()=>h.remove(), 2500);
+      }, i*100);
+    }
+  });
+}
+
+/* ============ PANEL TILT ON MOUSE MOVE ============ */
+document.querySelectorAll('.gallery-panel').forEach(panel=>{
+  panel.addEventListener('mousemove', (e)=>{
+    const r = panel.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - .5;
+    const y = (e.clientY - r.top)/r.height - .5;
+    panel.style.transform = `translate(${-4}px,${-4}px) rotate(${-0.5 + x*2}deg) perspective(800px) rotateY(${x*6}deg) rotateX(${-y*6}deg)`;
+  });
+  panel.addEventListener('mouseleave', ()=>{
+    panel.style.transform = '';
+  });
+});
+
+/* ============ KEYBOARD: SPACE = play music ============ */
+document.addEventListener('keydown', (e)=>{
+  if(e.code === 'Space' && e.target.tagName !== 'INPUT'){
+    e.preventDefault();
+    if(isPlaying) stopMusic(); else startMusic();
+  }
+});
+</script>
+</body>
+</html>
